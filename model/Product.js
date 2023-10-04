@@ -6,7 +6,7 @@ const ProductSchema = mongoose.Schema({
     required: [true, "You need to input a name"],
   },
   price: {
-    type: number,
+    type: Number,
     required: [true, "You need to input a price"],
   },
   name: {
