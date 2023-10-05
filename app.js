@@ -8,11 +8,18 @@ import NotFound from "./middlewares/not-found.js";
 import connect from "./db/connect.js";
 import router from "./routers/ProductRoutes.js";
 import fileUpload from "express-fileupload";
+import cloudinary from "cloudinary";
+cloudinary.v2;
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API_KEY,
+  api_secret: process.env.CLOUD_API_SECRET,
+});
 
 const app = express();
 app.use(express.json());
 app.use(fileUpload());
-app.use(express.static('./public'))
+app.use(express.static("./public"));
 
 const port = process.env.PORT || 5000;
 
