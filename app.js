@@ -18,7 +18,7 @@ cloudinaryV2.config({
 
 const app = express();
 app.use(express.json());
-app.use(fileUpload());
+app.use(fileUpload({ useTempFiles: true }));
 app.use(express.static("./public"));
 
 const port = process.env.PORT || 5000;
