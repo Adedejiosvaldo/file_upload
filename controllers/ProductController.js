@@ -7,7 +7,11 @@ const createProduct = async (req, res) => {
 };
 
 const getAllProducts = async (req, res) => {
-  res.send("List of products");
+  const products = await Product.find({});
+  if (!products) {
+    res.send("Out of Stock");
+  }
+  res.status(StatusCodes.OK).json({ products, nP: products.length });
 };
 
 export { createProduct, getAllProducts };

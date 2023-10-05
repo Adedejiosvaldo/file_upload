@@ -1,5 +1,5 @@
-import BadRequest from "./BadRequest";
-import CustomAPIError from "./CustomError";
-import NotFound from "./NotFound";
+import BadRequest from "./BadRequest.js";
+import CustomAPIError from "./CustomError.js";
+import NotFound from "./NotFound.js";
 
 export { BadRequest, NotFound, CustomAPIError };
