@@ -35,6 +35,7 @@ const uploadProductImageLocal = async (req, res) => {
 };
 
 import cloudinary from "cloudinary";
+import fs from "fs";
 const cloudinaryV2 = cloudinary.v2;
 
 //Uploading to cloudinary
@@ -44,6 +45,7 @@ const uploadProductImage = async (req, res) => {
     req.files.image.tempFilePath,
     { use_filename: true, folder: "files_node" }
   );
+  fs.unlinkSync(req.files.image.tempFilePath);
   res.status(StatusCodes.OK).json({ image: { src: `${result.secure_url}` } });
 };
 
